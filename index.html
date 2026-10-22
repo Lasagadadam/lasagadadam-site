@@ -14,6 +14,7 @@
   <link rel="preload" href="assets/adam-720.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/portfolio.css">
+  <link rel="stylesheet" href="assets/liens.css">
   <script>
     /* Applique le thème choisi avant l'affichage, pour éviter un flash. */
     try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -31,6 +32,7 @@
         <nav class="nav-pill" aria-label="Navigation principale">
           <a href="#portfolio" class="is-current">Portfolio</a>
           <a href="ressources.html">Ressources</a>
+          <a href="#liens">Mes liens</a>
           <a href="mailto:lasagadadam@gmail.com">Contact</a>
         </nav>
 
@@ -93,11 +95,20 @@
       <ul class="reels" id="reels"></ul>
       <a class="port-more" id="port-more" href="https://www.instagram.com/lasagadadam2.0/" target="_blank" rel="noopener">Voir tous mes reels sur Instagram</a>
     </section>
+
+    <section class="panel liens" id="liens" aria-labelledby="liens-title">
+      <div class="port-head">
+        <h2 class="port-title" id="liens-title">Mes liens</h2>
+        <p class="port-lede">Tout ce que j'ai à te proposer, au même endroit.</p>
+      </div>
+      <div class="liens-list" id="liens-list"></div>
+    </section>
   </main>
 
   <script src="data/site.js"></script>
   <script src="assets/theme.js"></script>
   <script src="assets/app.js"></script>
   <script src="assets/portfolio.js"></script>
+  <script src="assets/liens.js"></script>
 </body>
 </html>

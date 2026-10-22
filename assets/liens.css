@@ -1,0 +1,34 @@
+/* Section « Mes liens » (s'appuie sur style.css et portfolio.css) */
+.liens { margin-top: 14px; min-height: 0; padding: clamp(40px, 5.5vw, 80px) 36px clamp(40px, 5vw, 72px); }
+.liens[hidden] { display: none; }
+#liens { scroll-margin-top: 16px; }
+
+.liens-list { margin-top: clamp(28px, 3.6vw, 48px); max-width: 1040px; }
+.lien-group {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 8px 24px;
+  padding: 22px 0 6px; border-top: 1px solid var(--line-strong);
+}
+.lien-group:last-child { border-bottom: 1px solid var(--line-strong); padding-bottom: 14px; }
+.lien-group .kicker { margin: 4px 0 0; }
+.lien-rows { display: grid; }
+.lien-rows li + li { border-top: 1px solid var(--line); }
+.lien {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 14px 4px; transition: padding-left .2s;
+}
+.lien:hover { padding-left: 12px; }
+.lien-main { display: grid; min-width: 0; }
+.lien-title { font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; }
+.lien-detail { margin-top: 3px; color: var(--muted); font-size: .98rem; overflow-wrap: anywhere; }
+.lien-arrow {
+  flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong);
+  display: grid; place-items: center; transition: background-color .2s, color .2s;
+}
+.lien:hover .lien-arrow { background: var(--ink); color: var(--hero); }
+
+@media (max-width: 960px) {
+  .liens { padding: 36px 18px 30px; }
+  .lien-group { grid-template-columns: minmax(0, 1fr); padding-top: 18px; }
+  .lien-group .kicker { margin: 0 0 4px; }
+  .lien:hover { padding-left: 4px; }
+}

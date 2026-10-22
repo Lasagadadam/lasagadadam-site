@@ -24,5 +24,17 @@ window.RESOURCES = [
     download: false,
     video: "",
     added: "2026-10-22"
+  },
+  {
+    id: "guide-du-createur-01",
+    title: "Guide du Créateur 01 : Créer",
+    description: "Comment commencer à créer du contenu en 2026 : trouver son sujet, choisir sa plateforme, ne plus manquer d'idées, soigner les premières secondes, comprendre l'algorithme et rester régulier. Avec des exercices à remplir.",
+    category: "Réseaux",
+    format: "Guide PDF",
+    detail: "10 pages",
+    href: "ressources/guide-du-createur-01-creer.pdf",
+    download: true,
+    video: "",
+    added: "2026-10-22"
   }
 ];

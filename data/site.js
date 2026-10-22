@@ -23,7 +23,7 @@ window.SITE = {
     { group: "Réseaux", title: "Twitch", detail: "", url: "" },
     { group: "Projets", title: "Klyra", detail: "L'organisation des créateurs de contenu", url: "https://klyra-fr.netlify.app" },
     { group: "Projets", title: "Portfolio montage vidéo", detail: "Mes montages", url: "https://kasbu.bio/adaz" },
-    { group: "E-book", title: "Guide du Créateur 01 : Créer", detail: "Comment commencer à créer du contenu en 2026", url: "" },
+    { group: "E-book", title: "Guide du Créateur 01 : Créer", detail: "Comment commencer à créer du contenu en 2026", url: "ressources/guide-du-createur-01-creer.pdf" },
     { group: "Contact", title: "Me contacter", detail: "lasagadadam@gmail.com", url: "mailto:lasagadadam@gmail.com" }
   ],
   reels: [

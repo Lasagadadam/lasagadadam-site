@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adam, vidéaste et créateur de contenu</title>
+  <meta name="description" content="Portfolio d'Adam, vidéaste et créateur de contenu : courts métrages, vidéos et toutes les ressources gratuites de mes vidéos.">
+  <meta name="theme-color" content="#dce7ff">
+  <meta property="og:title" content="Adam, vidéaste et créateur de contenu">
+  <meta property="og:description" content="Mes vidéos, mes courts métrages et toutes les ressources gratuites de mes vidéos.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234c7df0'/%3E%3Cpath d='M9 23l7-14 7 14M12 18h8' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/adam-720.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/portfolio.css">
+  <script>
+    /* Applique le thème choisi avant l'affichage, pour éviter un flash. */
+    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <main class="stage">
+    <section class="hero" id="top">
+
+      <header class="nav">
+        <a class="brand" href="#top" aria-label="Adam, accueil">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Adam</span>
+        </a>
+
+        <nav class="nav-pill" aria-label="Navigation principale">
+          <a href="#portfolio" class="is-current">Portfolio</a>
+          <a href="ressources.html">Ressources</a>
+          <a href="mailto:lasagadadam@gmail.com">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
+            <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+            <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+          </button>
+          <a class="btn-contact" href="mailto:lasagadadam@gmail.com">Me contacter</a>
+        </div>
+      </header>
+
+      <div class="rings" aria-hidden="true"></div>
+
+      <div class="copy">
+        <h1 class="name">Adam<span class="sr-only">, vidéaste et créateur de contenu</span></h1>
+        <p class="lede">Je filme, je monte, et je te donne tout ce qu'il faut pour faire pareil.</p>
+        <a class="cta" href="ressources.html">
+          <span class="cta-text">
+            <span class="cta-title">Ressources gratuites</span>
+            <span class="cta-sub">Celles de mes vidéos</span>
+          </span>
+          <span class="cta-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <figure class="portrait">
+        <img src="assets/adam-720.webp"
+             srcset="assets/adam-720.webp 720w, assets/adam.webp 1080w"
+             sizes="(max-width: 960px) 92vw, 46vw"
+             width="1080" height="1080" alt="Adam, souriant, avec ses lunettes noires" fetchpriority="high">
+      </figure>
+
+      <aside class="card stat" aria-label="Mon audience">
+        <p class="stat-label">Abonnés cumulés</p>
+        <p class="stat-number"><span id="total" data-target="0">0</span></p>
+        <ul class="stat-list" id="socials"></ul>
+      </aside>
+
+      <a class="play" id="play-ig" href="https://www.instagram.com/lasagadadam2.0/" target="_blank" rel="noopener" aria-label="Voir mon compte Instagram">
+        <svg class="play-text" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="circle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+          <text><textPath href="#circle" startOffset="0">Voir mon Instagram · Voir mon Instagram · </textPath></text>
+        </svg>
+        <span class="play-core" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+        </span>
+      </a>
+
+      <div class="sponsors card" id="sponsors" hidden>
+        <p class="sponsors-label">Ils m'ont fait confiance</p>
+        <ul class="sponsors-list" id="sponsors-list"></ul>
+      </div>
+
+    </section>
+
+    <section class="panel portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="port-head">
+        <h2 class="port-title" id="portfolio-title">Mes vidéos</h2>
+        <p class="port-lede">Une sélection de mes reels. Le reste se passe sur Instagram et TikTok.</p>
+      </div>
+      <ul class="reels" id="reels"></ul>
+      <a class="port-more" id="port-more" href="https://www.instagram.com/lasagadadam2.0/" target="_blank" rel="noopener">Voir tous mes reels sur Instagram</a>
+    </section>
+  </main>
+
+  <script src="data/site.js"></script>
+  <script src="assets/theme.js"></script>
+  <script src="assets/app.js"></script>
+  <script src="assets/portfolio.js"></script>
+</body>
+</html>

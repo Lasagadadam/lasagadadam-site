@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checklist avant de tourner</title>
+<meta name="description" content="La checklist à cocher avant chaque tournage : caméra, son, lumière, cadre et sauvegarde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1226; --bg2:#101a36; --card:#15213f; --line:#26385e;
+  --txt:#eef3ff; --mute:#9fb1d6;
+  --purple:#7fa4ff; --purple2:#4c7df0; --cream:#dbe6ff; --lime:#a9d4ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;color:var(--txt);
+  background:radial-gradient(1200px 600px at 80% -10%,#23458f 0%,transparent 60%),
+             radial-gradient(900px 500px at -10% 30%,#183670 0%,transparent 60%),var(--bg);
+  min-height:100vh;overflow-x:hidden;line-height:1.5;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.orb{position:fixed;border-radius:50%;filter:blur(70px);opacity:.35;z-index:0;pointer-events:none;animation:drift 18s ease-in-out infinite}
+.orb.a{width:280px;height:280px;background:var(--purple2);top:10%;left:-80px}
+.orb.b{width:240px;height:240px;background:#5ec8ff;bottom:5%;right:-60px;animation-delay:-8s;opacity:.18}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-50px)}}
+header,main,footer{position:relative;z-index:1}
+
+header{padding:84px 0 24px;text-align:center}
+.badge{display:inline-block;background:var(--cream);color:#2a55c9;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:99px;animation:pop .8s cubic-bezier(.2,1.4,.4,1) both}
+h1{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(36px,9vw,66px);line-height:1.04;margin:20px 0 14px;letter-spacing:-.02em;animation:rise .9s .1s both}
+h1 span{background:linear-gradient(90deg,var(--purple),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% 0}}
+.sub{color:var(--mute);max-width:480px;margin:0 auto;font-size:17px;animation:rise .9s .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+
+/* progress */
+.progress{position:sticky;top:10px;z-index:10;margin:22px 0 6px;background:rgba(21,33,63,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:20px;padding:14px 18px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.p-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;margin-bottom:10px}
+.p-top button{font:inherit;font-size:13px;font-weight:700;color:var(--mute);background:transparent;border:1px solid var(--line);border-radius:99px;padding:5px 12px;cursor:pointer;transition:.3s}
+.p-top button:hover{color:var(--txt);border-color:var(--purple)}
+.bar{height:10px;border-radius:99px;background:var(--bg);overflow:hidden}
+.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--purple2),var(--purple),var(--lime));transition:width .5s cubic-bezier(.2,.9,.3,1)}
+.done-msg{display:none;margin-top:10px;font-weight:700;color:var(--lime);font-size:14px;animation:pop .6s both}
+.progress.full .done-msg{display:block}
+
+/* groups */
+.group{margin-top:26px;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:20px 18px 12px;border-top:4px solid var(--purple)}
+.group:nth-of-type(even){border-top-color:var(--cream)}
+.g-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.g-num{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:800;font-size:19px;color:#0a1226;background:linear-gradient(135deg,var(--purple),var(--lime));animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-4px) rotate(-4deg)}}
+.g-head h2{font-family:'Fraunces',serif;font-size:24px;font-weight:800;letter-spacing:-.01em}
+.g-head small{margin-left:auto;color:var(--mute);font-size:13px;font-weight:700;white-space:nowrap}
+
+.item{display:flex;align-items:flex-start;gap:14px;background:var(--card);border:1px solid transparent;border-radius:16px;padding:14px;margin:0 0 10px;cursor:pointer;transition:.3s cubic-bezier(.2,.9,.3,1.2);-webkit-tap-highlight-color:transparent;user-select:none}
+.item:hover{transform:translateY(-2px);border-color:var(--purple)}
+.item input{position:absolute;opacity:0;pointer-events:none}
+.box{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--purple);display:grid;place-items:center;transition:.3s;margin-top:1px}
+.box svg{width:16px;height:16px;stroke:#0a1226;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .35s .05s}
+.item.on .box{background:var(--lime);border-color:var(--lime);transform:scale(1.08)}
+.item.on .box svg{stroke-dashoffset:0}
+.t b{display:block;font-size:16px;font-weight:700;transition:.3s}
+.t span{color:var(--mute);font-size:13.5px}
+.item.on .t b{color:var(--mute);text-decoration:line-through;text-decoration-color:var(--purple)}
+.item:focus-within{border-color:var(--cream)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+footer{text-align:center;padding:60px 0 60px;color:var(--mute)}
+footer h3{font-family:'Fraunces',serif;color:var(--txt);font-size:26px;margin-bottom:8px}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.links a{color:var(--txt);text-decoration:none;font-weight:700;padding:12px 22px;border-radius:99px;background:var(--card);border:1px solid var(--line);transition:.3s}
+.links a:hover{background:var(--purple);color:#0a1226;transform:translateY(-3px)}
+
+@media(max-width:560px){header{padding-top:78px}.g-head h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* lien de retour vers le site */
+.back{position:absolute;top:18px;left:20px;z-index:5;display:inline-flex;align-items:center;gap:8px;color:var(--txt);text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px 9px 12px;border-radius:99px;background:rgba(21,33,63,.88);border:1px solid var(--line);backdrop-filter:blur(12px);transition:.3s}
+.back:hover{border-color:var(--purple);transform:translateX(-2px)}
+.back svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+<div class="orb a"></div><div class="orb b"></div>
+<a class="back" href="../ressources.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Toutes les ressources</a>
+
+<header>
+  <div class="wrap">
+    <span class="badge">Checklist gratuite</span>
+    <h1>Avant de <span>tourner</span></h1>
+    <p class="sub">Coche chaque ligne avant de lancer l'enregistrement. Plus aucun oubli sur le plateau.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="progress" id="progress">
+    <div class="p-top"><span id="count">0 / 0 fait</span><button id="reset" type="button">Tout décocher</button></div>
+    <div class="bar"><div class="fill" id="fill"></div></div>
+    <div class="done-msg">Tout est prêt. Action !</div>
+  </div>
+  <div id="groups"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>Elle t'a servi ?</h3>
+    <p>Partage-la à un ami qui tourne aussi, et dis-moi en commentaire ce que tu aimerais voir ensuite.</p>
+    <div class="links">
+      <a href="https://www.instagram.com/lasagadadam2.0" target="_blank" rel="noopener">Instagram @lasagadadam2.0</a>
+      <a href="https://www.tiktok.com/@lasagadadam" target="_blank" rel="noopener">TikTok @lasagadadam</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = [
+  { t:"La veille", items:[
+    ["Plan de la journée écrit","Scènes, lieux et horaires"],
+    ["Matériel rassemblé dans le sac","Tout au même endroit, prêt à partir"],
+    ["Lieu repéré et autorisation vérifiée","Ne pas découvrir un « interdit de filmer » sur place"],
+    ["Météo et heure de la lumière vérifiées","Lever et coucher du soleil si tu tournes dehors"],
+    ["Équipe et personnes à l'image prévenues","Heure, lieu, tenue"],
+    ["Script ou liste de plans prête","Même une simple liste sur ton téléphone"]
+  ]},
+  { t:"Caméra", items:[
+    ["Batterie chargée + une de rechange",""],
+    ["Carte mémoire vide + une de rechange","Formatée dans la caméra"],
+    ["Objectif propre","Lingette microfibre"],
+    ["Réglages vérifiés","Résolution, images par seconde, format"],
+    ["Balance des blancs et exposition réglées","Même réglage d'un plan à l'autre"],
+    ["Mise au point faite sur le sujet","Zoome sur l'écran pour vérifier"]
+  ]},
+  { t:"Son", items:[
+    ["Micro chargé et bien connecté",""],
+    ["Test d'enregistrement écouté au casque","Réécoute 5 secondes avant de continuer"],
+    ["Niveaux ni trop bas ni saturés","Évite le rouge sur le vumètre"],
+    ["Bonnette anti-vent en extérieur",""],
+    ["Bruits parasites coupés","Frigo, ventilateur, notifications du téléphone"]
+  ]},
+  { t:"Lumière", items:[
+    ["Source de lumière principale repérée","Fenêtre ou lumière d'appoint"],
+    ["Contre-jour évité","Sauf si c'est un choix de mise en scène"],
+    ["Lumière d'appoint installée si besoin","Pour déboucher les ombres du visage"],
+    ["Même température de couleur partout","Ne mélange pas lumière chaude et lumière froide"]
+  ]},
+  { t:"Cadre et stabilité", items:[
+    ["Trépied monté et verrouillé","Ou stabilisateur calibré"],
+    ["Format choisi","Vertical pour les réseaux, horizontal pour YouTube"],
+    ["Cadre aéré, sujet bien placé","Laisse de la marge, pense à la règle des tiers"],
+    ["Arrière-plan propre","Rien qui dépasse de la tête"]
+  ]},
+  { t:"Sur le plateau", items:[
+    ["Plan test tourné et revu","Image, son et lumière validés"],
+    ["Chaque plan filmé plusieurs fois","Tu choisiras la meilleure prise au montage"],
+    ["Plans de coupe filmés (B-roll)","Mains, détails, lieu : ils sauvent un montage"],
+    ["10 secondes de son d'ambiance enregistrées","Silence de la pièce, pour lisser le son"],
+    ["Chaque prise annoncée à voix haute","Scène et numéro, pour te repérer ensuite"]
+  ]},
+  { t:"Après le tournage", items:[
+    ["Rushes copiés à deux endroits","Ordinateur + disque externe ou cloud"],
+    ["Fichiers ouverts et vérifiés","Image et son présents"],
+    ["Dossiers nommés par date et par scène",""],
+    ["Batteries remises en charge",""],
+    ["Cartes formatées uniquement après sauvegarde","Jamais avant la double copie"]
+  ]}
+];
+
+const KEY = "checklist-tournage-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){}
+function persist(){ try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e){} }
+
+const root = document.getElementById("groups");
+let total = 0;
+DATA.forEach((g, gi) => {
+  const sec = document.createElement("section");
+  sec.className = "group rv";
+  sec.innerHTML = `<div class="g-head"><div class="g-num">${gi+1}</div><h2>${g.t}</h2><small data-g="${gi}"></small></div>`;
+  g.items.forEach((it, ii) => {
+    total++;
+    const id = gi + "-" + ii;
+    const lab = document.createElement("label");
+    lab.className = "item" + (saved[id] ? " on" : "");
+    lab.dataset.id = id; lab.dataset.g = gi;
+    lab.innerHTML = `<input type="checkbox" ${saved[id] ? "checked" : ""}>
+      <span class="box"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <span class="t"><b>${it[0]}</b>${it[1] ? `<span>${it[1]}</span>` : ""}</span>`;
+    lab.querySelector("input").addEventListener("change", e => {
+      lab.classList.toggle("on", e.target.checked);
+      if (e.target.checked) saved[id] = 1; else delete saved[id];
+      persist(); update();
+    });
+    sec.appendChild(lab);
+  });
+  root.appendChild(sec);
+});
+
+function update(){
+  const done = document.querySelectorAll(".item.on").length;
+  document.getElementById("count").textContent = done + " / " + total + " fait";
+  document.getElementById("fill").style.width = (done / total * 100) + "%";
+  document.getElementById("progress").classList.toggle("full", done === total);
+  DATA.forEach((g, gi) => {
+    const items = document.querySelectorAll('.item[data-g="'+gi+'"]');
+    const d = document.querySelectorAll('.item.on[data-g="'+gi+'"]').length;
+    document.querySelector('small[data-g="'+gi+'"]').textContent = d + "/" + items.length;
+  });
+}
+document.getElementById("reset").addEventListener("click", () => {
+  saved = {}; persist();
+  document.querySelectorAll(".item").forEach(l => { l.classList.remove("on"); l.querySelector("input").checked = false; });
+  update();
+});
+update();
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: .08 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

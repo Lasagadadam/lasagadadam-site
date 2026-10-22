@@ -1,0 +1,62 @@
+/* Section Portfolio de la page d'accueil (s'appuie sur style.css) */
+.portfolio {
+  margin-top: 16px; min-height: 0;
+  padding: clamp(44px, 6.5vw, 96px) 36px clamp(40px, 5vw, 72px);
+}
+.port-title {
+  margin: 0; font-weight: 800; letter-spacing: -0.055em; line-height: .88;
+  font-size: clamp(3.4rem, 9.5vw, 8.5rem); color: var(--ink);
+}
+.port-lede { margin-top: clamp(16px, 2vw, 26px); max-width: 38ch; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.35; font-weight: 500; color: var(--muted); }
+
+.reels {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 24px);
+  max-width: 1060px; margin-top: clamp(30px, 4vw, 52px); align-items: start;
+}
+.reel { display: grid; gap: 12px; min-width: 0; }
+
+.reel-frame { position: relative; aspect-ratio: 9 / 17; border-radius: 28px; overflow: hidden; background: var(--hero-2); box-shadow: var(--shadow); }
+.reel-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+
+.reel-poster {
+  position: absolute; inset: 0; width: 100%; display: block; padding: 0; cursor: pointer;
+  border: 1px solid var(--glass-line); border-radius: inherit; color: var(--ink); font: inherit; text-align: left;
+  background: linear-gradient(170deg, var(--hero-1) 0%, var(--hero-2) 58%, var(--hero-3) 100%);
+  background-size: cover; background-position: center;
+}
+.reel-poster::before {
+  content: ""; position: absolute; left: 50%; top: 42%; width: 34%; aspect-ratio: 1; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1px var(--ring-line), 0 0 0 clamp(22px, 3.4vw, 46px) var(--ring-a), 0 0 0 clamp(46px, 7vw, 94px) var(--ring-b);
+}
+.reel-poster.has-cover::before { display: none; }
+.reel-play {
+  position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
+  width: 68px; height: 68px; border-radius: 50%; background: var(--accent); color: var(--on-accent);
+  display: grid; place-items: center; padding-left: 3px; box-shadow: var(--shadow); transition: transform .25s;
+}
+.reel-poster:hover .reel-play { transform: translate(-50%, -50%) scale(1.1); }
+.reel-label { position: absolute; left: 18px; right: 18px; bottom: 18px; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.015em; line-height: 1.2; text-wrap: balance; }
+.reel-badge {
+  position: absolute; left: 14px; top: 14px; padding: 7px 14px; border-radius: 999px;
+  font-size: .85rem; font-weight: 700; background: var(--accent); color: var(--on-accent);
+}
+
+.reel-open { justify-self: start; font-weight: 600; font-size: .95rem; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; padding: 2px 4px; }
+.reel-open:hover { color: var(--ink); }
+
+.port-more {
+  display: inline-flex; margin-top: clamp(24px, 3vw, 38px); padding: 13px 24px; border-radius: 999px;
+  background: var(--ink); color: var(--page); font-weight: 600; transition: transform .2s;
+}
+.port-more:hover { transform: translateY(-1px); }
+
+@media (max-width: 960px) {
+  .portfolio { padding: 44px 18px 32px; }
+  .reels {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px;
+    margin-left: -18px; margin-right: -18px; padding: 4px 18px 10px; scrollbar-width: none;
+  }
+  .reels::-webkit-scrollbar { display: none; }
+  .reel { flex: 0 0 min(76vw, 320px); scroll-snap-align: center; }
+}
